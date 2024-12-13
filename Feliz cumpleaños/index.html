@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Cumpleaños</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to top, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 90px;
+            height: 110px;
+            background-color: #ff6f61;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .balloon:nth-child(2) { left: 25%; background: #ffd700; animation-delay: 2s; }
+        .balloon:nth-child(3) { left: 50%; background: #ff6f91; animation-delay: 4s; }
+        .balloon:nth-child(4) { left: 75%; background: #6fbaff; animation-delay: 6s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-250px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(-600px) rotate(-10deg);
+            }
+        }
+
+        .card {
+            width: 450px;
+            height: 350px;
+            background: #fff;
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .card .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, #ff6f61, #ff9a9e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            transition: transform 1s;
+        }
+
+        .card.open .cover {
+            transform: rotateY(180deg);
+        }
+
+        .card .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-size: 22px;
+            font-weight: bold;
+            opacity: 0;
+            transform: rotateY(-180deg);
+            backface-visibility: hidden;
+            transition: opacity 1s, transform 1s;
+        }
+
+        .card.open .content {
+            opacity: 1;
+            transform: rotateY(0);
+        }
+
+        .fairy-tail {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .fairy-tail:hover {
+            transform: scale(1.2);
+        }
+
+        .fairy-tail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <div class="card" onclick="openCard(this)">
+        <div class="cover">¡Haz clic aquí!</div>
+        <div class="content">
+            <div>
+                <h2>¡Feliz Cumpleaños Antonella!</h2>
+                <p>🎉 Hoy celebramos tus 27 años llenos de magia y alegría. 🎈</p>
+                <p>¡Que tengas un día maravilloso lleno de amor y sorpresas!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="fairy-tail" style="top: 10px; left: 10px;" onclick="showImage(this)">
+        <img src="/da93156dde0d8e11541efe148c520770.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 10px; right: 10px;" onclick="showImage(this)">
+        <img src="/d201a5ad7a029da6cab128d5dc20f462.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="bottom: 10px; left: 10px;" onclick="showImage(this)">
+        <img src="/c8c537a5c71bab50b2868974479c539a.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="bottom: 10px; right: 10px;" onclick="showImage(this)">
+        <img src="/97bda19c10f629e9078c0ccab765fea4.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 50%; left: 10px; transform: translateY(-50%);" onclick="showImage(this)">
+        <img src="/939abfdd435dc460c764e2657ea4c0c4.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 50%; right: 10px; transform: translateY(-50%);" onclick="showImage(this)">
+        <img src="/938e7c56bd25298d19ede6b3e659ec39.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 10px; left: 50%; transform: translateX(-50%);" onclick="showImage(this)">
+        <img src="/8de48740ffad9346d38ea6361432f6fa.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="bottom: 10px; left: 50%; transform: translateX(-50%);" onclick="showImage(this)">
+        <img src="/6748cd16e9ade642679ef8551cc5dcbd.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 30%; left: 30%;" onclick="showImage(this)">
+        <img src="/5851402792c3dbc41670032231174242.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 30%; right: 30%;" onclick="showImage(this)">
+        <img src="/2b73412f604e5c3ae7c44da6361ca02c.gif" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 10%; left: 10%;" onclick="showImage(this)">
+        <img src="/1d040351938a936cebb2f160e9d8c8ea.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="top: 10%; right: 10%;" onclick="showImage(this)">
+        <img src="/125a89bb5d525cb8693bbfd015afa74c.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="bottom: 10%; left: 10%;" onclick="showImage(this)">
+        <img src="/0a0bf4e266cd98ec14056ff9633f1d02.jpg" alt="Fairy Tail">
+    </div>
+    <div class="fairy-tail" style="bottom: 10%; right: 10%;" onclick="showImage(this)">
+        <img src="/0157ed3a91ab7d97ca0249ca100148ca.jpg" alt="Fairy Tail">
+    </div>
+
+    <script>
+        function openCard(card) {
+            card.classList.toggle('open');
+        }
+
+        function showImage(element) {
+            const imageSrc = element.querySelector('img').src;
+            const imageModal = document.createElement('div');
+            imageModal.className = 'image-modal';
+            imageModal.style.position = 'fixed';
+            imageModal.style.top = '0';
+            imageModal.style.left = '0';
+            imageModal.style.width = '100%';
+            imageModal.style.height = '100%';
+            imageModal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            imageModal.style.display = 'flex';
+            imageModal.style.justifyContent = 'center';
+            imageModal.style.alignItems = 'center';
+            imageModal.style.zIndex = '1000';
+
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.style.maxWidth = '90%';
+            img.style.maxHeight = '90%';
+            img.style.borderRadius = '10px';
+
+            imageModal.appendChild(img);
+
+            imageModal.onclick = function () {
+                document.body.removeChild(imageModal);
+            };
+
+            document.body.appendChild(imageModal);
+        }
+    </script>
+</body>
+</html>
